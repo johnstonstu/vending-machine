@@ -1,0 +1,56 @@
+[
+  {
+    "items": {
+      "choclate": {
+        "price": 1,
+        "stock": 5,
+        "maxStock": 5
+      },
+      "candy": {
+        "price": 0.5,
+        "stock": 5,
+        "maxStock": 5
+      },
+      "pop": {
+        "price": 2,
+        "stock": 5,
+        "maxStock": 5
+      },
+      "chips": {
+        "price": 1.5,
+        "stock": 5,
+        "maxStock": 5
+      }
+    },
+    "float": {
+      "10": {
+        "stock": 10,
+        "maxStock": 10
+      },
+      "5": {
+        "stock": 10,
+        "maxStock": 10
+      },
+      "2": {
+        "stock": 10,
+        "maxStock": 10
+      },
+      "1": {
+        "stock": 10,
+        "maxStock": 10
+      },
+      "0.25": {
+        "stock": 10,
+        "maxStock": 10
+      },
+      "0.1": {
+        "stock": 10,
+        "maxStock": 10
+      },
+      "0.05": {
+        "stock": 10,
+        "maxStock": 10
+      }
+    }
+  }
+]
