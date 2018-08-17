@@ -112,30 +112,12 @@ describe("when a customer is using the vending maching", () => {
     });
     describe("when a worker wants to refill the stock", () => {
       it("should return success", () => {
-        expect(vendingMachine.addStock()).toEqual({
-          items: [
-            {
-              name: "choclate",
-              stock: 5,
-              maxStock: 5
-            },
-            {
-              name: "candy",
-              stock: 5,
-              maxStock: 5
-            },
-            {
-              name: "pop",
-              stock: 5,
-              maxStock: 5
-            },
-            {
-              name: "chips",
-              stock: 5,
-              maxStock: 5
-            }
-          ]
-        });
+        expect(vendingMachine.addStock()).toEqual([
+          { name: "choclate", maxStock: 5, price: 1, stock: 5 },
+          { name: "candy", maxStock: 5, price: 0.5, stock: 5 },
+          { name: "pop", maxStock: 5, price: 2, stock: 5 },
+          { name: "chips", maxStock: 5, price: 1.5, stock: 5 }
+        ]);
       });
     });
     describe("when a worker wants to refill the float", () => {

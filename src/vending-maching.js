@@ -2,6 +2,7 @@ class VendingMachine {
   constructor(dataPath) {
     this.data = require(dataPath);
     this.items = this.data.items;
+    this.float = this.data.float;
   }
 
   getAllItems() {
@@ -38,6 +39,20 @@ class VendingMachine {
   addCredit(val) {
     if (val > 10) return "failure";
     return { credit: val };
+  }
+
+  addStock() {
+    this.items.forEach(item => {
+      item.stock = item.maxStock;
+    });
+    return this.items;
+  }
+
+  addFloat() {
+    this.float.forEach(value => {
+      value.stock = value.maxStock;
+    });
+    return { float: this.float };
   }
 }
 
