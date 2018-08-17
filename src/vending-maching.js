@@ -35,14 +35,31 @@ class VendingMachine {
     if (undefined === res) return "item not found";
     return res;
   }
+  getChange(amount, coins) {
+    if (amount === 0) {
+      return [];
+    } else {
+      if (amount >= coins[0]) {
+        let left = amount - coins[0];
+        return [coins[0]].concat(this.getChange(left, coins));
+      } else {
+        coins.shift();
+        return this.getChange(amount, coins);
+      }
+    }
+  }
 
   buyItem(item, credit) {
     let cur = this.getItem(item);
+    let coins = [2, 1, 0.25];
     if (cur.stock === 0) return "item not in stock";
     if (credit === cur.price) {
       return "success";
     }
-    if (credit > cur.price) return ["success", `change: ${credit - cur.price}`];
+    if (credit > cur.price) {
+      let change = this.getChange(credit - cur.price, coins);
+      return ["success", `change: ${change}`];
+    }
     if (credit < cur.price)
       return ["fail", `please add: ${cur.price - credit}`];
     // return cur;

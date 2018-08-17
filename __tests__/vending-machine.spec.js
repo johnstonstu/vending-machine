@@ -81,7 +81,7 @@ describe("when a customer is using the vending maching", () => {
     it("should return success remove 1 stock of item, return credit in change from float", () => {
       expect(vendingMachine.buyItem("candy", 1)).toEqual([
         "success",
-        "change: 0.5"
+        "change: 0.25,0.25"
       ]);
     });
   });
