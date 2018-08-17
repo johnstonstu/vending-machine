@@ -53,6 +53,11 @@ describe("when a customer is using the vending maching", () => {
       });
     });
   });
+  describe("when a customer wants to see a single item that does not exist", () => {
+    it("should return item not found", () => {
+      expect(vendingMachine.getItem("stu")).toEqual("item not found");
+    });
+  });
   describe("when a customer inserts money", () => {
     it("should update credit", () => {
       expect(vendingMachine.addCredit(5)).toEqual({
