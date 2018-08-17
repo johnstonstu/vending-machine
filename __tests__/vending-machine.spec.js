@@ -58,10 +58,12 @@ describe("when a customer is using the vending maching", () => {
       expect(vendingMachine.getItem("stu")).toEqual("item not found");
     });
   });
+
   describe("when a customer inserts money", () => {
     it("should update credit", () => {
-      expect(vendingMachine.addCredit(5)).toEqual({
-        credit: 5
+      vendingMachine.addCredit(2);
+      expect(vendingMachine.addCredit(2)).toEqual({
+        credit: 4
       });
     });
   });
@@ -77,18 +79,18 @@ describe("when a customer is using the vending maching", () => {
   });
   describe("when a customer buys an item with more credit then the cost", () => {
     it("should return success remove 1 stock of item, return credit in change from float", () => {
-      expect(vendingMachine.buyItem("candy", 1)).toEqual(
+      expect(vendingMachine.buyItem("candy", 1)).toEqual([
         "success",
         "change: 0.5"
-      );
+      ]);
     });
   });
   describe("when a customer does not have enouch credit to buy item", () => {
     it("should return failure", () => {
-      expect(vendingMachine.buyItem("pop", 1)).toEqual(
+      expect(vendingMachine.buyItem("pop", 1)).toEqual([
         "fail",
-        "please add: $1"
-      );
+        "please add: 1"
+      ]);
     });
   });
   describe("when a customer tries to buy item not in stock", () => {
@@ -111,7 +113,7 @@ describe("when a customer is using the vending maching", () => {
       });
     });
     describe("when a worker wants to refill the stock", () => {
-      it("should return success", () => {
+      it("should return list of items, with stock = max stock", () => {
         expect(vendingMachine.addStock()).toEqual([
           { name: "choclate", maxStock: 5, price: 1, stock: 5 },
           { name: "candy", maxStock: 5, price: 0.5, stock: 5 },
@@ -121,19 +123,9 @@ describe("when a customer is using the vending maching", () => {
       });
     });
     describe("when a worker wants to refill the float", () => {
-      it("should return success", () => {
+      it("should return list of floats with stock = max stock", () => {
         expect(vendingMachine.addFloat()).toEqual({
           float: [
-            {
-              value: 10,
-              stock: 10,
-              maxStock: 10
-            },
-            {
-              value: 5,
-              stock: 10,
-              maxStock: 10
-            },
             {
               value: 2,
               stock: 10,
