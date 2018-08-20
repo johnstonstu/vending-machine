@@ -81,7 +81,12 @@ describe("when a customer is using the vending maching", () => {
     it("should return success remove 1 stock of item, return credit in change from float", () => {
       expect(vendingMachine.buyItem("candy", 1)).toEqual([
         "success",
-        "change: 0.25,0.25"
+        "change:",
+        {
+          toonies: 0,
+          loonies: 0,
+          quarters: 2
+        }
       ]);
     });
   });
@@ -89,7 +94,12 @@ describe("when a customer is using the vending maching", () => {
     it("should return failure", () => {
       expect(vendingMachine.buyItem("pop", 1)).toEqual([
         "fail",
-        "please add: 1"
+        "please add:",
+        {
+          toonies: 0,
+          loonies: 1,
+          quarters: 0
+        }
       ]);
     });
   });

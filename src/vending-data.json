@@ -28,12 +28,12 @@
   "float": [
     {
       "value": 2,
-      "stock": 10,
+      "stock": 9,
       "maxStock": 10
     },
     {
       "value": 1,
-      "stock": 10,
+      "stock": 8,
       "maxStock": 10
     },
     {
