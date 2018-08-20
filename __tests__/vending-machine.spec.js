@@ -10,7 +10,7 @@ const VendingMachine = require("../src/vending-maching.js");
  * -buy item not enough $ => error
  * -buy item and give change => success, remove 1 stock, give change, reset credit
  * -buy item not in stock => error
- * -buy item > $10 bill => error
+ * -`buy item > $10 bill => error`
  */
 
 // tests for maintaining vending machine
@@ -81,7 +81,7 @@ describe("when a customer is using the vending maching", () => {
     it("should return success remove 1 stock of item, return credit in change from float", () => {
       expect(vendingMachine.buyItem("candy", 1)).toEqual([
         "success",
-        "change:",
+        "change: $0.5",
         {
           toonies: 0,
           loonies: 0,
@@ -94,7 +94,7 @@ describe("when a customer is using the vending maching", () => {
     it("should return failure", () => {
       expect(vendingMachine.buyItem("pop", 1)).toEqual([
         "fail",
-        "please add:",
+        "please add: $1",
         {
           toonies: 0,
           loonies: 1,
