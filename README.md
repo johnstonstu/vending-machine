@@ -26,18 +26,18 @@ The vending machine itself should be a Javascript class. No interface for using 
 
 ## Tests
 
-`total items => list`
-`single item => single item`
-`items in stock => list`
-`insert $ => update credit`
-`buy item exact change => success, remove 1 stock, reset credit`
-`buy item not enough $ => error`
-`buy item and give change => success, remove 1 stock, give change, reset credit`
-`buy item not in stock => error`
-`buy item > $10 bill => error`
-`items not in stock => list`
-`add stock => update item stock`
-`add float => update float stock`
+- `total items => list`
+- `single item => single item`
+- `items in stock => list`
+- `insert $ => update credit`
+- `buy item exact change => success, remove 1 stock, reset credit`
+- `buy item not enough $ => error`
+- `buy item and give change => success, remove 1 stock, give change, reset credit`
+- `buy item not in stock => error`
+- `buy item > $10 bill => error`
+- `items not in stock => list`
+- `add stock => update item stock`
+- `add float => update float stock`
 
 ## Installation
 
